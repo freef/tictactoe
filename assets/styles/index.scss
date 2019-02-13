@@ -11,6 +11,11 @@ h1 {
   text-align: center;
 }
 
+section {
+  justify-content: center;
+  text-align: center;
+}
+
 .row {
   display: flex;
   justify-content: center;
@@ -22,6 +27,13 @@ h1 {
   height: 200px;
   width: 200px;
   &:hover {
-    background-color: lighten($turquoise, 15%);
+    background-color: lighten($darkergray, 15%);
 }
+}
+
+.x {
+  background-color: $redorange;
+}
+.o {
+  background-color:$yellowish;
 }
