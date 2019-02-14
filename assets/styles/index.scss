@@ -24,16 +24,29 @@ section {
 .cell {
   background-color: $turquoise;
   border: 2px $darkergray solid;
-  height: 200px;
-  width: 200px;
+  width: 33%;
+
+  &:after {
+    content: '';
+    display: block;
+    padding-bottom: 100%;
+  }
+
   &:hover {
-    background-color: lighten($darkergray, 15%);
-}
+    background-color: lighten($turquoise, 15%);
+  }
 }
 
 .x {
   background-color: $redorange;
+  &:hover {
+    background-color: lighten($redorange, 15%);
+  }
 }
+
 .o {
-  background-color:$yellowish;
+  background-color: $yellowish;
+  &:hover {
+    background-color: lighten($yellowish, 15%);
+  }
 }
