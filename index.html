@@ -1,36 +1,63 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <title>Example</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `link` tags-->
-      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<head>
+  <title>Example</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `script` tags-->
-      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
-      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-    </head>
-    <body>
-      <h1>Tic-Tac-Toe</h1>
-      <section>
-        <div class="row">
-          <div class ="cell" id="row0col0"> </div>
-          <div class ="cell" id="row0col1"> </div>
-          <div class ="cell" id="row0col2"> </div>
-        </div>
-        <div class="row">
-          <div class ="cell" id="row1col0"> </div>
-          <div class ="cell" id="row1col1"> </div>
-          <div class ="cell" id="row1col2"> </div>
-        </div>
-        <div class="row">
-          <div class ="cell" id="row2col0"> </div>
-          <div class ="cell" id="row2col1"> </div>
-          <div class ="cell" id="row2col2"> </div>
-        </div>
-        <button type="button" id="board-reset"> Reset Board</button>
-      </section>
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
-    </body>
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
+<body>
+  <h1>Tic-Tac-Toe</h1>
+  <section>
+    <h3 id="game-display"></h3>
+    <div class="row tictac-row">
+      <div class="cell" id="00"> </div>
+      <div class="cell" id="01"> </div>
+      <div class="cell" id="02"> </div>
+    </div>
+    <div class="row tictac-row">
+      <div class="cell" id="10"> </div>
+      <div class="cell" id="11"> </div>
+      <div class="cell" id="12"> </div>
+    </div>
+    <div class="row tictac-row">
+      <div class="cell" id="20"> </div>
+      <div class="cell" id="21"> </div>
+      <div class="cell" id="22"> </div>
+    </div>
+    <button type="button" id="board-reset"> Reset Board</button>
+  </section>
+
+  <div class="user-crap">
+    <p id="current-user"></p>
+    <p id="user-message"></p>
+    <form id="sign-up-form">
+      <input name="credentials[email]" type="email" placeholder="email" required>
+      <input name="credentials[password]" type="password" placeholder="password" required>
+      <input name="credentials[password_confirmation]" type="password" placeholder="password confirmation" required>
+      <button type="submit">Submit</button>
+    </form>
+    <form id="sign-in-form">
+      <input name="credentials[email]" type="email" placeholder="email" required>
+      <input name="credentials[password]" type="password" placeholder="password" required>
+      <button type="submit">Submit</button>
+    </form>
+    <form id="change-password-form">
+      <input name="passwords[old]" type="password" placeholder="old password" required>
+      <input name="passwords[new]" type="password" placeholder="new password" required>
+      <button type="submit">Submit</button>
+    </form>
+    <form id="sign-out-form">
+      <button type="submit">Sign Out</button>
+    </form>
+  </div>
+</body>
+
 </html>

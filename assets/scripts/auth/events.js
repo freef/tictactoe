@@ -1,25 +1,42 @@
 'use strict'
-// lets play tic tac Toe
-let gameBoard = {}
-const makeBoard = rowSize => {
-  const newBoard = {
-    cells: [],
-    over: false,
-    turnCounter: 0,
-    winner: undefined,
-    player_x: {
-      id: undefined,
-      email: undefined
-    },
-    player_o: null
-  }
-  for (let i = 0; i < rowSize; i++) {
-    newBoard.cells.push('')
-  }
-  gameBoard = newBoard
-  return gameBoard
+const getFormFields = require('../../../lib/get-form-fields.js')
+const api = require('./api.js')
+const ui = require('./ui.js')
+
+const onSignUp = event => {
+  event.preventDefault()
+  const form = event.target
+  const formData = getFormFields(form)
+  api.signUp(formData)
+    .then(ui.signUpSuccess)
+    .catch(ui.signUpFailure)
 }
-console.log(makeBoard(9))
+const onSignIn = event => {
+  event.preventDefault()
+  const form = event.target
+  const formData = getFormFields(form)
+  api.signIn(formData)
+    .then(ui.signInSuccess)
+    .catch(ui.signInFailure)
+}
+const onSignOut = event => {
+  event.preventDefault()
+  api.signOut()
+    .then(ui.signOutSuccess)
+    .catch(ui.signOutFailure)
+}
+const onChangePassword = event => {
+  event.preventDefault()
+  const form = event.target
+  const formData = getFormFields(form)
+  api.changePassword(formData)
+    .then(ui.changePasswordSuccess)
+    .catch(ui.changePasswordFailure)
+}
 
 module.exports = {
+  onSignUp,
+  onSignIn,
+  onSignOut,
+  onChangePassword
 }

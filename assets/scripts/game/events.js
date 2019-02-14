@@ -51,8 +51,19 @@ const takeTurn = (moveArray) => {
   return gameBoard
 }
 
+const convertIdToCoords = string => {
+  const coords = []
+  string.split('').forEach(letter => {
+    const num = parseInt(letter, 10)
+    coords.push(num)
+  }
+  )
+  return coords
+}
+
 module.exports = {
   gameBoard,
   makeBoard,
-  takeTurn
+  takeTurn,
+  convertIdToCoords
 }
