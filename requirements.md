@@ -38,9 +38,9 @@ of the project week.
 ### API Specifications
 
 1.  [x] Create new games on the server. (CREATE)
-1.  [ ] Update a game by storing new moves. (UPDATE)
-1.  [ ] Visually display the results of retrieving game statistics, such as total games won by a user. (READ)
-1.  [ ] Give feedback to the user after each action.
+1.  [x] Update a game by storing new moves. (UPDATE)
+1.  [x] Visually display the results of retrieving game statistics, such as total games won by a user. (READ)
+1.  [x] Give feedback to the user after each action.
 
 ### Auth Specifications
 
