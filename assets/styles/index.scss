@@ -25,11 +25,15 @@ section {
   background-color: $turquoise;
   border: 2px $darkergray solid;
   width: 33%;
+  border: none;
+  border-radius:10%;
+  margin:1%;
 
   &::after {
     content: '';
     display: block;
     padding-bottom: 100%;
+
   }
 
   &:hover {
@@ -39,7 +43,7 @@ section {
 
 .x {
   background-color: $redorange;
-  background-image: url('public/O.svg');
+  background-image: url("public/O.svg");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -51,7 +55,7 @@ section {
 
 .o {
   background-color: $yellowish;
-  background-image: url('public/X.svg');
+  background-image: url("public/X.svg");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;

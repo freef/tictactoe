@@ -1,66 +1,41 @@
 'use strict'
-// lets play tic tac toe
-// generate board
-let gameBoard = {}
-const makeBoard = rowSize => {
-  const newBoard = {
-    board: [],
-    turnCounter: 0,
-    winner: undefined
-  }
-  for (let i = 0; i < rowSize; i++) {
-    if (newBoard.board[i] === undefined) { newBoard.board[i] = [] }
-    for (let j = 0; j < rowSize; j++) {
-      newBoard.board[i].push(' ')
-    }
-  }
-  gameBoard = newBoard
-  return gameBoard
+const gameLogic = require('./logic.js')
+const gameUi = require('./ui.js')
+const gameApi = require('./api.js')
+
+const onGetGames = () => {
+  gameApi.getGames()
+    .then(gameUi.onGetGamesSuccess)
+    .catch(gameUi.onGetGamesFailure)
+}
+const newGame = () => {
+  gameApi.createNewGame()
+    .then(gameLogic.assignID)
+  gameLogic.gameBoard = gameLogic.makeBoard(3)
+  $('.cell').removeClass('x')
+  $('.cell').removeClass('o')
+  gameUi.displayUpdate()
+  onGetGames()
 }
 
-const placePiece = xy => {
-  if (gameBoard.board[xy[0]][xy[1]] !== ' ') {
-    return 'Not a valid move!'
-  } else {
-    gameBoard.turnCounter % 2 ? gameBoard.board[xy[0]][xy[1]] = 'O' : gameBoard.board[xy[0]][xy[1]] = 'x'
-    gameBoard.turnCounter++
-  }
+const initializeGame = event => {
+  gameLogic.gameBoard = gameLogic.makeBoard(3)
+  $('.cell').removeClass('x')
+  $('.cell').removeClass('o')
+  gameUi.displayUpdate()
 }
-
-const checkWin = (xy) => {
-  const player = gameBoard.turnCounter % 2 ? 'x' : 'O'
-  const winCheck = Boolean(
-    gameBoard.board[xy[0]].every(value => value === player) ||
-    gameBoard.board.every(value => value[xy[1]] === player) ||
-    (gameBoard.board[0][0] === player && gameBoard.board[1][1] === player && gameBoard.board[2][2] === player) ||
-    (gameBoard.board[0][2] === player && gameBoard.board[1][1] === player && gameBoard.board[2][0] === player))
-  if (winCheck === true) { gameBoard.winner = player }
-  if (gameBoard.turnCounter === 9 && gameBoard.winner === undefined) {
-    gameBoard.winner = 'Draw'
+const onMove = event => {
+  if (gameLogic.gameBoard.winner === undefined) {
+    gameLogic.takeTurn(event.target.id)
+    gameUi.boardUpdate()
+    gameUi.displayUpdate()
+    gameApi.updateGame()
   }
-  return gameBoard
-}
-
-const takeTurn = (moveArray) => {
-  if (gameBoard.winner !== undefined) { return `${gameBoard.winner} has already won!` }
-  placePiece(moveArray)
-  if (gameBoard.turnCounter > 4) { checkWin(moveArray) }
-  return gameBoard
-}
-
-const convertIdToCoords = string => {
-  const coords = []
-  string.split('').forEach(letter => {
-    const num = parseInt(letter, 10)
-    coords.push(num)
-  }
-  )
-  return coords
 }
 
 module.exports = {
-  gameBoard,
-  makeBoard,
-  takeTurn,
-  convertIdToCoords
+  onMove,
+  newGame,
+  initializeGame,
+  onGetGames
 }
