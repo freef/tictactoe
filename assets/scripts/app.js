@@ -17,7 +17,7 @@ $(() => {
   // reset board on load
   gameEvents.initializeGame()
   // make a move
-  $('.tictac-row').on('click', gameEvents.onMove)
+  $('.cell').on('click', gameEvents.onMove)
   // reset board button
   $('#board-reset').on('click', gameEvents.newGame)
   // user crap
