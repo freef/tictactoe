@@ -19,7 +19,6 @@ const makeBoard = rowSize => {
 }
 
 const placePiece = xy => {
-  console.log(xy)
   if (gameBoard.board[xy[0]][xy[1]] !== ' ') {
     return 'Not a valid move!'
   } else {
@@ -43,11 +42,9 @@ const checkWin = (xy) => {
 }
 
 const takeTurn = (moveArray) => {
-  console.log(moveArray)
   if (gameBoard.winner !== undefined) { return `${gameBoard.winner} has already won!` }
   placePiece(moveArray)
   if (gameBoard.turnCounter > 4) { checkWin(moveArray) }
-  console.log(gameBoard)
   return gameBoard
 }
 

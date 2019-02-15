@@ -26,7 +26,7 @@ section {
   border: 2px $darkergray solid;
   width: 33%;
 
-  &:after {
+  &::after {
     content: '';
     display: block;
     padding-bottom: 100%;
@@ -39,6 +39,11 @@ section {
 
 .x {
   background-color: $redorange;
+  background-image: url("../../public/O.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+
   &:hover {
     background-color: lighten($redorange, 15%);
   }
@@ -46,6 +51,11 @@ section {
 
 .o {
   background-color: $yellowish;
+  background-image: url("../../public/X.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+
   &:hover {
     background-color: lighten($yellowish, 15%);
   }
