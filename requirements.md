@@ -5,13 +5,13 @@ In order to get a satisfactory score, by the time you present your project, you
 
 ### Deployment
 
-1.  [ ] Deploy on your public Github page, not Github Enterprise.
-1.  [ ] Present a working browser game, built by you, hosted and deployed on GitHub Pages.
+1.  [x] Deploy on your public Github page, not Github Enterprise.
+1.  [x] Present a working browser game, built by you, hosted and deployed on GitHub Pages.
 
 ### Version Control
 
-1.  [ ] Sharing your work through a git repository hosted on Github.
-1.  [ ] Making frequent, cohesive commits dating back to the **first day**
+1.  [x] Sharing your work through a git repository hosted on Github.
+1.  [x] Making frequent, cohesive commits dating back to the **first day**
 of the project week.
 
 ### Documentation
@@ -33,11 +33,11 @@ of the project week.
 1.  [x] -- Visually display which side won if a player gets three in a row or show a draw if neither wins. --
 1.  [x] -- Support playing multiple games, one at a time. --
 1.  [x] -- Use jQuery for DOM manipulation and event handling. --
-1.  [ ] Use AJAX for interacting with a provided API.
+1.  [x] Use AJAX for interacting with a provided API.
 
 ### API Specifications
 
-1.  [ ] Create new games on the server. (CREATE)
+1.  [x] Create new games on the server. (CREATE)
 1.  [ ] Update a game by storing new moves. (UPDATE)
 1.  [ ] Visually display the results of retrieving game statistics, such as total games won by a user. (READ)
 1.  [ ] Give feedback to the user after each action.
@@ -45,13 +45,13 @@ of the project week.
 ### Auth Specifications
 
 1.  [x] -- Signup with email, password, and password confirmation. --
-1.  [ ] -- Login with email and password.--
-1.  [ ] -- Logout when logged in.--
-1.  [ ] -- Change password with current and new password.--
-1.  [ ] Signup and Signin must only be available to not signed in users.
-1.  [ ] Logout and Change password must only be available to signed in users.
+1.  [x] -- Login with email and password.--
+1.  [x] -- Logout when logged in.--
+1.  [x] -- Change password with current and new password.--
+1.  [x] Signup and Signin must only be available to not signed in users.
+1.  [x] Logout and Change password must only be available to signed in users.
 1.  [x] -- Give feedback to the user after each action's success or failure. --
-1.  [ ] All forms must clear after submit success or failure
+1.  [x] All forms must clear after submit success or failure
 
 ### DO NOT!!
 

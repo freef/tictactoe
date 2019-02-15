@@ -1,5 +1,6 @@
 'use strict'
 const store = require('../store.js')
+const gameEvents = require('../game/events.js')
 
 const signUpSuccess = () => {
   $('#user-message').text('Successfully Signed Up!')
@@ -20,9 +21,10 @@ const signInSuccess = (responseData) => {
   $('#log-in-content').addClass('d-none')
   store.user = responseData.user
   $('form').trigger('reset')
+  gameEvents.newGame()
 }
 const signInFailure = () => {
-  $('#user-message').text('Failure: ')
+  $('#user-message').text('Failed to sign in')
   $('form').trigger('reset')
 }
 
@@ -35,11 +37,10 @@ const signOutSuccess = () => {
   $('#change-password-content').addClass('d-none')
   $('form').trigger('reset')
   $('#log-in-content').removeClass('d-none')
-//  store.user = null
+//  $('#games-played').addClass('d-none')
 }
 const signOutFailure = (responseData) => {
-  store.response = responseData.responseText
-  $('#user-message').text('Failure: ')
+  $('#user-message').text('Failed to sign out successfully')
   $('form').trigger('reset')
 }
 

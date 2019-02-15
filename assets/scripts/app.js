@@ -1,8 +1,10 @@
 'use strict'
 
 const events = require('./auth/events.js')
+// const gameLogic = require('./game/logic.js')
+// const gameUi = require('./game/ui.js')
+// const gameApi = require('./game/api.js')
 const gameEvents = require('./game/events.js')
-const gameUi = require('./game/ui.js')
 // // // use require with a reference to bundle the file and use it in this file
 // // // const example = require('./example')
 // //
@@ -10,25 +12,14 @@ const gameUi = require('./game/ui.js')
 // // // require('./example')
 // //
 //
+
 $(() => {
   // reset board on load
-  gameEvents.gameBoard = gameEvents.makeBoard(3)
-  gameUi.displayUpdate()
+  gameEvents.initializeGame()
   // make a move
-  $('.tictac-row').on('click', (event) => {
-    if (gameEvents.gameBoard.winner === undefined) {
-      gameEvents.takeTurn(gameEvents.convertIdToCoords(event.target.id))
-      gameUi.boardUpdate()
-      gameUi.displayUpdate()
-    }
-  })
+  $('.tictac-row').on('click', gameEvents.onMove)
   // reset board button
-  $('#board-reset').on('click', (event) => {
-    gameEvents.gameBoard = gameEvents.makeBoard(3)
-    $('.cell').removeClass('x')
-    $('.cell').removeClass('o')
-    gameUi.displayUpdate()
-  })
+  $('#board-reset').on('click', gameEvents.newGame)
   // user crap
   // be sure to remove all references to "user-crap" prior to submission
   $('#sign-up-form').on('submit', events.onSignUp)
