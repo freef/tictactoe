@@ -26,14 +26,13 @@ section {
   border: 2px $darkergray solid;
   width: 33%;
   border: none;
-  border-radius:10%;
-  margin:1%;
+  border-radius: 10%;
+  margin: 1%;
 
   &::after {
     content: '';
     display: block;
     padding-bottom: 100%;
-
   }
 
   &:hover {

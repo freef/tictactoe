@@ -27,18 +27,19 @@ const makeBoard = rowSize => {
   gameBoard = newBoard
   return gameBoard
 }
+const validMove = xy => gameBoard.board[xy[0]][xy[1]] !== ' '
 
 const placePiece = xy => {
-  if (gameBoard.board[xy[0]][xy[1]] !== ' ') {
-    return 'Not a valid move!'
+  if (validMove(xy)) {
+    return 'invalid'
   } else {
-    gameBoard.turnCounter % 2 ? gameBoard.board[xy[0]][xy[1]] = 'O' : gameBoard.board[xy[0]][xy[1]] = 'x'
+    gameBoard.turnCounter % 2 ? gameBoard.board[xy[0]][xy[1]] = 'o' : gameBoard.board[xy[0]][xy[1]] = 'x'
     gameBoard.turnCounter++
   }
 }
 
 const checkWin = (xy) => {
-  const player = gameBoard.turnCounter % 2 ? 'x' : 'O'
+  const player = gameBoard.turnCounter % 2 ? 'x' : 'o'
   const winCheck = Boolean(
     gameBoard.board[xy[0]].every(value => value === player) ||
     gameBoard.board.every(value => value[xy[1]] === player) ||
@@ -85,6 +86,7 @@ const assignID = responseData => {
 
 module.exports = {
   gameBoard,
+  validMove,
   makeBoard,
   takeTurn,
   convertIdToCoords,
