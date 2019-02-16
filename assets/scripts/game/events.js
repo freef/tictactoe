@@ -27,8 +27,8 @@ const initializeGame = event => {
 const onMove = event => {
   if (gameLogic.gameBoard.winner === undefined) {
     gameLogic.takeTurn(event.target.id)
-    gameUi.boardUpdate()
     gameUi.displayUpdate()
+    gameUi.boardUpdate()
     gameApi.updateGame()
   }
 }
