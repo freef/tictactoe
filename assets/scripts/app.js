@@ -14,14 +14,9 @@ const gameEvents = require('./game/events.js')
 //
 
 $(() => {
-  // reset board on load
   gameEvents.initializeGame()
-  // make a move
   $('.cell').on('click', gameEvents.onMove)
-  // reset board button
   $('#board-reset').on('click', gameEvents.newGame)
-  // user crap
-  // be sure to remove all references to "user-crap" prior to submission
   $('#sign-up-form').on('submit', events.onSignUp)
   $('#sign-in-form').on('submit', events.onSignIn)
   $('#change-password-form').on('submit', events.onChangePassword)

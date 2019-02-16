@@ -13,7 +13,6 @@ const boardUpdate = () => {
     gameLogic.gameBoard.turnCounter % 2 ? $(event.target).addClass('o') : $(event.target).addClass('x')
   } else {
     $('#game-display').text('Invalid move.')
-    console.log('no')
     setTimeout(displayUpdate, 1500)
   }
 }
