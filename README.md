@@ -34,7 +34,8 @@ From there I added the log in screen and added all the API calls specified by th
 - Only known bug is one where the API may create an extra game in the event of a draw upon resetting the board.
 
 ## Wirerames
-
+[![Wireframe 1](https://i.imgur.com/ydHFv9P.jpg)
+[![Wireframe 2](https://i.imgur.com/GeW18Hz.jpg)
 
 ## User stories
 - As a user i want to put an x or o on any space so that I make track my moves
