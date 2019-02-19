@@ -31,14 +31,14 @@ Once the game was fully playable using console commands in javascript I built ou
 From there I added the log in screen and added all the API calls specified by the requirements document. I've been using the requirments document as a checklist to keep me organized and focused during this project.
 
 ## Known Bugs
-- Only known bug is one where the API may create an extra game in the event of a draw upon resetting the board.
+-  ~~Only known bug is one where the API may create an extra game in the event of a draw upon resetting the board.~~ Corrected 2/19/18
 
 ## Wirerames
 [![Wireframe 1](https://i.imgur.com/ydHFv9P.jpg)
 [![Wireframe 2](https://i.imgur.com/GeW18Hz.jpg)
 
 ## User stories
-- As a user i want to put an x or o on any space so that I make track my moves
+- As a user I want to put an x or o on any space so that I make track my moves
 - As a user I want the game to keep track of moves so that it can tell me when the game ends
 - As a user i want the other player to only be able to place pieces in untaken spaces so that I don't need to worry about cheating
 - As a user I want to be told the results of the game when a game ending condition is met so that both myself and my opponent can know the results of the game
@@ -49,6 +49,6 @@ From there I added the log in screen and added all the API calls specified by th
 - As a user i'd like to store records of my games online with my Account
 
 ## Potential Future Improvements
-- Implement the `watch` API call to allow for online multiplayer
+- Allow users to pulling up an unfinished game.
 - Allow a user to see a page with all of their past games
-- Allow users to save a game for later by pulling up an unfinished game.
+- Implement the `watch` API call to allow for online multiplayer

@@ -18,7 +18,7 @@ const boardUpdate = () => {
 }
 
 const onGetGamesSuccess = (responseData) => {
-  $('#user-message').text(`You've played ${responseData.games.length} games`)
+  $('#user-message').text(`You've finished ${responseData.games.length} games`)
   // $('#user-message').removeClass('d-none')
 }
 
