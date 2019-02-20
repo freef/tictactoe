@@ -15,7 +15,7 @@ const signUpFailure = () => {
 
 const signInSuccess = (responseData) => {
   $('#user-message').text('Successfully Signed In!')
-  $('#current-user').text(`${responseData.user.email}`)
+  $('#current-user').text(`${responseData.user.email} profile`)
   $('#current-user').removeClass('d-none')
   $('#play-field').removeClass('d-none')
   $('#sign-out-form').removeClass('d-none')
@@ -42,7 +42,7 @@ const signOutSuccess = () => {
   $('form').trigger('reset')
   $('input').trigger('reset')
   $('#log-in-content').removeClass('d-none')
-//  $('#games-played').addClass('d-none')
+  if ($('#current-user').text() === 'Return to Game') { goToProfile() }
 }
 const signOutFailure = (responseData) => {
   $('#user-message').text('Failed to sign out successfully')
@@ -61,6 +61,16 @@ const changePasswordFailure = () => {
   $('input').trigger('reset')
 }
 
+const goToProfile = () => {
+  if ($('#current-user').text() === 'Return to Game') {
+    $('#current-user').text(`${store.user.email} profile`)
+  } else {
+    $('#current-user').text('Return to Game')
+  }
+  $('#play-field').toggle()
+  $('.profile-content').toggle()
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -69,5 +79,6 @@ module.exports = {
   signOutSuccess,
   signOutFailure,
   changePasswordSuccess,
-  changePasswordFailure
+  changePasswordFailure,
+  goToProfile
 }

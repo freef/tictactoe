@@ -21,13 +21,13 @@ const makeBoard = rowSize => {
   for (let i = 0; i < rowSize; i++) {
     if (newBoard.board[i] === undefined) { newBoard.board[i] = [] }
     for (let j = 0; j < rowSize; j++) {
-      newBoard.board[i].push(' ')
+      newBoard.board[i].push('')
     }
   }
   gameBoard = newBoard
   return gameBoard
 }
-const validMove = xy => gameBoard.board[xy[0]][xy[1]] !== ' '
+const validMove = xy => gameBoard.board[xy[0]][xy[1]] !== ''
 
 const placePiece = xy => {
   if (validMove(xy)) {
@@ -84,11 +84,25 @@ const assignID = responseData => {
   return gameBoard.id
 }
 
+const convertCells = array => {
+  const ticTac = [[], [], []]
+  for (let i = 0; i < array.length; i++) {
+    const item = array[i]
+    if (i < 3) {
+      ticTac[0].push(item)
+    } else if (i < 6) {
+      ticTac[1].push(item)
+    } else { ticTac[2].push(item) }
+  }
+  return ticTac
+}
+
 module.exports = {
   gameBoard,
   validMove,
   makeBoard,
   takeTurn,
   convertIdToCoords,
-  assignID
+  assignID,
+  convertCells
 }

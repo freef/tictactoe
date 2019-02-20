@@ -2,10 +2,16 @@
 const gameLogic = require('./logic.js')
 const gameUi = require('./ui.js')
 const gameApi = require('./api.js')
+const getFormFields = require('../../../lib/get-form-fields.js')
 
 const onGetGames = () => {
   gameApi.getGames()
     .then(gameUi.onGetGamesSuccess)
+    .catch(gameUi.onGetGamesFailure)
+}
+const onGetAllGames = () => {
+  gameApi.getAllGames()
+    .then(gameUi.onGetAllGamesSuccess)
     .catch(gameUi.onGetGamesFailure)
 }
 const newGame = () => {
@@ -32,10 +38,20 @@ const onMove = event => {
     gameApi.updateGame()
   }
 }
+const onGetGameById = (event) => {
+  event.preventDefault()
+  const form = event.target
+  const formData = getFormFields(form)
+  gameApi.getGameById(formData)
+    .then(gameUi.getGameByIdSuccess)
+    .catch(gameUi.getGameByIdfailure)
+}
 
 module.exports = {
   onMove,
   newGame,
   initializeGame,
-  onGetGames
+  onGetGames,
+  onGetAllGames,
+  onGetGameById
 }
