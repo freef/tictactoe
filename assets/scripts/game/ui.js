@@ -18,7 +18,7 @@ const boardUpdate = () => {
 }
 
 const onGetGamesSuccess = (responseData) => {
-  $('#user-message').text(`Game ID: ${gameLogic.gameBoard.id}`)
+  gameLogic.gameBoard.id !== null ? $('#user-message').text(`Game ID: ${gameLogic.gameBoard.id}`) : $('#user-message').text(`Loading Game ID`)
 }
 
 const onGetGamesFailure = () => {
