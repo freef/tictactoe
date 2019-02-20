@@ -36,6 +36,8 @@ const onMove = event => {
     gameUi.displayUpdate()
     gameUi.boardUpdate()
     gameApi.updateGame()
+  } else {
+    gameUi.alreadyOver()
   }
 }
 const onGetGameById = (event) => {

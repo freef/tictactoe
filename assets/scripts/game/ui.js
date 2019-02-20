@@ -106,11 +106,18 @@ const getGameByIdSuccess = responseData => {
   $('#user-message').text(`Game ID: ${gameLogic.gameBoard.id}`)
 }
 
+const alreadyOver = () => {
+  $('#game-display').text('This game has ended.')
+  $('#game-display').fadeTo('slow', 0.4)
+  $('#game-display').fadeTo('slow', 1)
+}
+
 module.exports = {
   boardUpdate,
   displayUpdate,
   onGetGamesSuccess,
   onGetGamesFailure,
   onGetAllGamesSuccess,
-  getGameByIdSuccess
+  getGameByIdSuccess,
+  alreadyOver
 }

@@ -62,7 +62,12 @@ const convertToApi = (cellPatch) => {
 const takeTurn = (string) => {
   const moveArray = convertIdToCoords(string)
   const cellPatch = parseInt(string, 3)
-  if (gameBoard.winner !== undefined) { return `${gameBoard.winner} has already won!` }
+  if (gameBoard.winner !== undefined) {
+    console.log('beep')
+    $('#game-display').text('This game has ended.')
+    $('#game-display').fadeTo('slow', 0.4)
+    $('#game-display').fadeTo('slow', 1)
+  }
   placePiece(moveArray)
   if (gameBoard.turnCounter > 4) { checkWin(moveArray) }
   convertToApi(cellPatch)
