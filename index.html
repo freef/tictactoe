@@ -43,11 +43,11 @@
   </section>
   <section class="container auth">
     <div id="log-in-content">
-      <div class="sign-in-page ">
+      <div class="sign-in-page">
         <div class="row justify-content-center">
           <h3> Sign In</h3>
         </div>
-        <form id="sign-in-form" class="form">
+        <form id="sign-in-form" class="main-page-form form">
           <div class="row justify-content-center">
             <input name="credentials[email]" type="email" placeholder="email" required>
             <input name="credentials[password]" type="password" placeholder="password" required>
@@ -59,7 +59,7 @@
         <div class="row justify-content-center">
           <h3> Sign Up</h3>
         </div>
-        <form id="sign-up-form">
+        <form id="sign-up-form" class="main-page-form ">
           <div class="row justify-content-center">
             <input name="credentials[email]" type="email" placeholder="email" required>
             <input name="credentials[password]" type="password" placeholder="password" required>
@@ -76,7 +76,7 @@
         <div class="row justify-content-center">
           <h3> Change Password </h3>
         </div>
-        <form id="change-password-form">
+        <form id="change-password-form" class="main-page-form">
           <div class="row justify-content-center">
             <input name="passwords[old]" type="password" placeholder="old password" required>
             <input name="passwords[new]" type="password" placeholder="new password" required>
@@ -86,7 +86,7 @@
           </div>
         </form>
         <h3> Restore Previous Game </h3>
-        <form id="load-game">
+        <form id="load-game" class="main-page-form">
           <div class="row justify-content-center">
             <input name="id" type="number" min="0" placeholder="Game Id" required>
           </div>
