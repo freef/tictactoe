@@ -42,6 +42,7 @@ const signOutSuccess = () => {
   $('form').trigger('reset')
   $('input').trigger('reset')
   $('#log-in-content').removeClass('d-none')
+  if ($('#current-user').text() === 'Return to Game') { goToProfile() }
 }
 const signOutFailure = (responseData) => {
   $('#user-message').text('Failed to sign out successfully')
