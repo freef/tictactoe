@@ -1,35 +1,21 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <title>Tic-Tac-Toe</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- Do not add `link` tags-->
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-
-  <!-- Do not add `script` tags-->
   <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
   <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
 </head>
-
 <body>
   <nav class=" navbar navbar-expand-md navbar-dark bg-dark">
     <button class="btn btn-outline-light d-none" type="button" id="current-user"></button>
-
-    <!-- </form> -->
     <p id="user-message" class="nav-item text-white-50 mx-auto"></p>
     <form id="sign-out-form" class="form-inline text-light d-none ml-auto">
       <button type="submit" class="btn btn-outline-light ">Sign Out</button>
     </form>
   </nav>
-
-
-
-
-
   <h1>Tic-Tac-Toe</h1>
-  <!-- should be hidden on load -->
   <section class="container d-none" id="play-field">
     <div class="row">
       <h3 id="game-display" class="col-12"></h3>
@@ -54,7 +40,6 @@
     </div>
   </section>
   <section class="container auth">
-
     <div id="log-in-content">
       <div class="sign-in-page ">
         <div class="row justify-content-center">
@@ -66,19 +51,15 @@
             <input name="credentials[password]" type="password" placeholder="password" required>
             <button type="submit" class="btn btn-outline-dark">Log In</button>
           </div>
-          <!-- <div class="row justify-content=center">
-        <button type="submit" class="btn btn-sm btn-outline-dark">Create New Account</button> </div>-->
         </form>
         <div class="row justify-content-center">
           <h3> Sign Up</h3>
         </div>
         <form id="sign-up-form" class="row justify-content-center">
-
           <input name="credentials[email]" type="email" placeholder="email" required>
           <input name="credentials[password]" type="password" placeholder="password" required>
           <input name="credentials[password_confirmation]" type="password" placeholder="password confirmation" required>
           <button type="submit" class="btn btn-outline-dark">Submit</button>
-          <!-- <a href="#">Existing user? Click here to sign in!</a> -->
         </form>
       </div>
     </div>
@@ -97,15 +78,11 @@
           <input name="id" type="number" min="0" placeholder="Game Id" required>
           <button type="submit" class="btn btn-outline-dark">Load Game</button>
         </form>
-
       <h2>Game Records</h2>
     <div id="game-records"></div>
-
       </div>
       <div class="row"></div>
     </div>
-
   </section>
 </body>
-
 </html>

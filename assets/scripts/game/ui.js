@@ -54,14 +54,7 @@ const onGetAllGamesSuccess = responseData => {
     $('#game-records').append(gameRecord)
   })
 }
-//
-// // return data
-// "game": {
-//   "id":3872,
-//   "cells":["x","","","","o","","","",""],
-//   "over":false,
-//   "player_x":{"id":329,"email":"m@t.t"},
-// "player_o":null}}
+
 const getGameByIdSuccess = responseData => {
   const playBoard = gameLogic.gameBoard
   const oldGame = responseData.game
