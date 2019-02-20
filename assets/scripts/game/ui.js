@@ -18,17 +18,106 @@ const boardUpdate = () => {
 }
 
 const onGetGamesSuccess = (responseData) => {
-  $('#user-message').text(`You've finished ${responseData.games.length} games`)
-  // $('#user-message').removeClass('d-none')
+  $('#user-message').text(`Game ID: ${gameLogic.gameBoard.id}`)
 }
 
 const onGetGamesFailure = () => {
   $('#user-message').text('Something went wrong')
 }
 
+const onGetAllGamesSuccess = responseData => {
+  $('#game-records').html('')
+
+  responseData.games.forEach(game => {
+    const printableBoard = []
+    const responseBoard = gameLogic.convertCells(game.cells)
+    const printFormat = array => {
+      array.forEach(subArray => {
+        const row = []
+        subArray.forEach(item => {
+          if (item === '') { item = '\u2588' }
+          row.push(item)
+        })
+        printableBoard.push(row)
+      })
+    }
+    printFormat(responseBoard)
+    const gameRecord = (`
+    <div class="aRecord">
+    <h4>Game ID: ${game.id}</h4>
+    <div class="game-record-board">
+    <p>${printableBoard[0]}</p>
+    <p>${printableBoard[1]}</p>
+    <p>${printableBoard[2]}</p>
+    </div>
+    <p>over: ${game.over}</p>`)
+    $('#game-records').append(gameRecord)
+  })
+}
+//
+// // return data
+// "game": {
+//   "id":3872,
+//   "cells":["x","","","","o","","","",""],
+//   "over":false,
+//   "player_x":{"id":329,"email":"m@t.t"},
+// "player_o":null}}
+const getGameByIdSuccess = responseData => {
+  const playBoard = gameLogic.gameBoard
+  const oldGame = responseData.game
+  const refreshBoard = board => {
+    let turnCounter = 0
+    for (let i = 0; i < board.length; i++) {
+      for (let j = 0; j < board[i].length; j++) {
+        const htmlId = i.toString() + j.toString()
+        if (board[i][j] === 'x') {
+          $(`#${htmlId}`).addClass('o')
+          turnCounter++
+        } else if (board[i][j] === 'o') {
+          $(`#${htmlId}`).addClass('x')
+          turnCounter++
+        }
+      }
+    }
+    playBoard.turnCounter = turnCounter
+  }
+  const whoWon = array => {
+    let x = 0
+    let o = 0
+    array.forEach(cell => {
+      if (cell === 'x') { x++ } else if (cell === 'o') { o++ }
+    })
+    if (x > o) {
+      playBoard.winner = 'x'
+    } else if (playBoard.turnCounter < 8) {
+      playBoard.winner = 'o'
+    } else {
+      playBoard.winner = 'Someone has already'
+    }
+  }
+
+  playBoard.api.over = oldGame.over
+  playBoard.id = oldGame.id
+  playBoard.board = gameLogic.convertCells(oldGame.cells)
+  $('.cell').removeClass('x')
+  $('.cell').removeClass('o')
+  refreshBoard(playBoard.board)
+  displayUpdate()
+  if (playBoard.api.over === true) {
+    whoWon(oldGame.cells)
+    $('#game-display').text('This game has ended.')
+  } else {
+    playBoard.winner = undefined
+    displayUpdate()
+  }
+  $('#user-message').text(`Game ID: ${gameLogic.gameBoard.id}`)
+}
+
 module.exports = {
   boardUpdate,
   displayUpdate,
   onGetGamesSuccess,
-  onGetGamesFailure
+  onGetGamesFailure,
+  onGetAllGamesSuccess,
+  getGameByIdSuccess
 }

@@ -40,6 +40,11 @@ section {
   }
 }
 
+.game-record-board {
+  font-family: monospace;
+  line-height: 0;
+}
+
 .x {
   background-color: $redorange;
   background-image: url("public/O.svg");
@@ -62,4 +67,11 @@ section {
   &:hover {
     background-color: lighten($yellowish, 15%);
   }
+}
+
+.profile-content {
+  display: none;
+}
+#change-password-form {
+  margin-bottom: 3rem;
 }

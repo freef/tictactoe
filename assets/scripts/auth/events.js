@@ -34,9 +34,15 @@ const onChangePassword = event => {
     .catch(ui.changePasswordFailure)
 }
 
+const onProfile = event => {
+  event.preventDefault()
+  ui.goToProfile()
+}
+
 module.exports = {
   onSignUp,
   onSignIn,
   onSignOut,
-  onChangePassword
+  onChangePassword,
+  onProfile
 }
