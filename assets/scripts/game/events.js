@@ -21,6 +21,7 @@ const newGame = () => {
   $('.cell').removeClass('x')
   $('.cell').removeClass('o')
   $('#game-display').stop(true, true)
+  $('#game-display').fadeTo('fast', 1)
   gameUi.displayUpdate()
   onGetGames()
 }
