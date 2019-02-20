@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Tic-Tac-Toe</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,6 +8,7 @@
   <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
   <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
 </head>
+
 <body>
   <nav class=" navbar navbar-expand-md navbar-dark bg-dark">
     <button class="btn btn-outline-light d-none" type="button" id="current-user"></button>
@@ -49,17 +51,23 @@
           <div class="row justify-content-center">
             <input name="credentials[email]" type="email" placeholder="email" required>
             <input name="credentials[password]" type="password" placeholder="password" required>
+          </div>
+          <div class="row justify-content-center">
             <button type="submit" class="btn btn-outline-dark">Log In</button>
           </div>
         </form>
         <div class="row justify-content-center">
           <h3> Sign Up</h3>
         </div>
-        <form id="sign-up-form" class="row justify-content-center">
-          <input name="credentials[email]" type="email" placeholder="email" required>
-          <input name="credentials[password]" type="password" placeholder="password" required>
-          <input name="credentials[password_confirmation]" type="password" placeholder="password confirmation" required>
-          <button type="submit" class="btn btn-outline-dark">Submit</button>
+        <form id="sign-up-form">
+          <div class="row justify-content-center">
+            <input name="credentials[email]" type="email" placeholder="email" required>
+            <input name="credentials[password]" type="password" placeholder="password" required>
+            <input name="credentials[password_confirmation]" type="password" placeholder="password confirmation" required>
+          </div>
+          <div class="row justify-content-center">
+            <button type="submit" class="btn btn-outline-dark">Submit</button>
+          </div>
         </form>
       </div>
     </div>
@@ -78,11 +86,12 @@
           <input name="id" type="number" min="0" placeholder="Game Id" required>
           <button type="submit" class="btn btn-outline-dark">Load Game</button>
         </form>
-      <h2>Game Records</h2>
-    <div id="game-records"></div>
+        <h2>Game Records</h2>
+        <div id="game-records"></div>
       </div>
       <div class="row"></div>
     </div>
   </section>
 </body>
+
 </html>

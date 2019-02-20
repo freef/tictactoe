@@ -20,6 +20,7 @@ const newGame = () => {
   gameLogic.gameBoard = gameLogic.makeBoard(3)
   $('.cell').removeClass('x')
   $('.cell').removeClass('o')
+  $('#game-display').stop(true, true)
   gameUi.displayUpdate()
   onGetGames()
 }
