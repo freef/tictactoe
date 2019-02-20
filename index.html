@@ -76,15 +76,23 @@
         <div class="row justify-content-center">
           <h3> Change Password </h3>
         </div>
-        <form id="change-password-form" class="row justify-content-center">
-          <input name="passwords[old]" type="password" placeholder="old password" required>
-          <input name="passwords[new]" type="password" placeholder="new password" required>
-          <button type="submit" class="btn btn-outline-dark">Submit</button>
+        <form id="change-password-form">
+          <div class="row justify-content-center">
+            <input name="passwords[old]" type="password" placeholder="old password" required>
+            <input name="passwords[new]" type="password" placeholder="new password" required>
+          </div>
+          <div class="row justify-content-center">
+            <button type="submit" class="btn btn-outline-dark">Submit</button>
+          </div>
         </form>
         <h3> Restore Previous Game </h3>
-        <form id="load-game" class="row justify-content-center">
-          <input name="id" type="number" min="0" placeholder="Game Id" required>
-          <button type="submit" class="btn btn-outline-dark">Load Game</button>
+        <form id="load-game">
+          <div class="row justify-content-center">
+            <input name="id" type="number" min="0" placeholder="Game Id" required>
+          </div>
+          <div class="row justify-content-center">
+            <button type="submit" class="btn btn-outline-dark">Load Game</button>
+          </div>
         </form>
         <h2>Game Records</h2>
         <div id="game-records"></div>
