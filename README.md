@@ -49,6 +49,6 @@ From there I added the log in screen and added all the API calls specified by th
 - As a user i'd like to store records of my games online with my Account
 
 ## Potential Future Improvements
-- Allow users to pulling up an unfinished game.
+- ~~Allow users to pulling up an unfinished game.~~ added 2/20/19
 - Allow a user to see a page with all of their past games
 - Implement the `watch` API call to allow for online multiplayer
